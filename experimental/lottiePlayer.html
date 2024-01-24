@@ -1,0 +1,69 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-player/1.4.3/lottie-player.js"></script>
+<div
+  style="height: 50px; width: 50px; background-color: antiquewhite"
+  onclick="play()"
+></div>
+<lottie-player
+  onclick="anim(event)"
+  id="avatar"
+  mode="normal"
+  src="./avatar.json"
+  speed="1.5"
+  style="
+    border: 1px solid red;
+    --lottie-player-toolbar-height: 20px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+  "
+>
+</lottie-player>
+
+<!-- space
+space
+space -->
+
+<lottie-player
+  onclick="anim(event)"
+  id="eye"
+  mode="normal"
+  src="./eye.json"
+  speed="1.5"
+  style="
+    border: 1px solid red;
+
+    --lottie-player-toolbar-height: 20px;
+    display: flex;
+    align-items: center;
+  "
+>
+</lottie-player>
+
+<script lang="javascript">
+    document.querySelector("#avatar").shadowRoot.querySelector("#animation").style.height = '100%';
+
+  // the below script allows us to play animation and reset it again for playing to create the effect of animation on hover
+
+     let isAvatarReady = true;
+     function playin(){
+       console.log('played');
+       if(isAvatarReady){
+         let player = document.getElementsByTagName('lottie-player')[0];
+         player.play();
+         isAvatarReady = false;
+         setTimeout(()=>{
+           player.stop();
+           isAvatarReady  = true;
+         },1140);// after how many seconds to reset
+         }
+       }
+
+       function play(){
+       console.log('played');
+         let player = document.getElementsByTagName('lottie-player')[0];
+         player.stop();
+         player.play();
+
+       }
+</script>

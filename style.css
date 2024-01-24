@@ -1,0 +1,316 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  width: 100%;
+  font-size: 16px;
+}
+
+body {
+  width: 100%;
+  height: fit-content;
+  font-family: poppins, sans-serif;
+  color: #0c0a0a;
+}
+
+button {
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 400px;
+  background-color: rgba(249, 224, 187, 0.5);
+  border: 2px solid #8c4c34;
+  z-index: 10;
+  backdrop-filter: blur(15px);
+  left: calc(50% - 200px);
+  top: calc(50% - 250px);
+  border-radius: 10px;
+  transition: 0.5s;
+  transform: scale(0);
+}
+
+.formLogin {
+  height: 400px;
+}
+
+.formSignup {
+  height: 500px;
+}
+
+#formCloseButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 25px;
+  width: 25px;
+  background-image: url(./img/close.png);
+  background-size: contain;
+}
+
+#form h2 {
+  position: relative;
+  top: -20px;
+  font-size: 1.8rem;
+  color: #8c4c34;
+  font-weight: 900;
+}
+
+#form h4 {
+  color: #8c4c34;
+  position: relative;
+  top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form input {
+  background: transparent;
+  height: 40px;
+  width: 100%;
+  font-size: 1.3rem;
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: default;
+  color: #8c4c34;
+}
+
+label {
+  position: absolute;
+  transition-duration: 0.5s;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #8c4c34;
+  top: -2px;
+  left: 0;
+  /* the above property works only when there is an initial value */
+}
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+  top: -20px;
+}
+/* the above property basically means that when the preceding input is in focus then set the property of label as given and 
+also when place holder of preceding input is not shown then set the style as given */
+
+form {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form .icon {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 30px;
+  background-size: contain;
+  z-index: 5;
+  transition: 0.5s;
+}
+
+#Username,
+#Email,
+#Password {
+  width: 60%;
+  border-bottom: 4px solid #8c4c34;
+  position: relative;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+}
+
+#form button {
+  width: 60%;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: #8c4c34;
+  color: #f9e0bb;
+  font-family: inherit;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 0;
+}
+
+#form a {
+  font-size: inherit;
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+#dataFieldContainer {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#head {
+  background-color: #f9e0bb;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+  /* the above style has been added because the header child was moving the parent head with its margin-top property */
+}
+#header {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  height: 50px;
+  position: relative;
+}
+
+.logo {
+  background-image: url(./img/logo.png);
+  background-size: 102%;
+  /* in the above property the percent is in reference to containers size and not to the image */
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 250px;
+  top: -7px;
+  height: inherit;
+  position: relative;
+}
+
+#nav {
+  display: flex;
+  gap: 20px;
+  color: #8c4c34;
+}
+
+#nav div {
+  padding: 5px;
+}
+
+#nav a {
+  font-size: inherit;
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+#reglog {
+  display: flex;
+  gap: 20px;
+}
+
+#login {
+  margin-right: 20px;
+}
+
+#reglog button {
+  border-radius: 15px;
+  padding: 5px 20px;
+  border: 0;
+  cursor: pointer;
+}
+
+#signup button {
+  width: 100%;
+  height: 100%;
+  background-color: #f9e0bb;
+  font-size: 1.5rem;
+  color: #8c4c34;
+  border: 1px solid #8c4c34;
+}
+
+#login button {
+  width: 100%;
+  height: 100%;
+  background-color: #8c4c34;
+  font-size: 1.5rem;
+  color: #f9e0bb;
+}
+
+#banner {
+  height: 550px;
+  width: 100%;
+  border-bottom: 2px solid #8c4c34;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+  /* 120% has to be put because the width of the image is 1920 but the width of the window is 1500px approx
+  so 100% would be only 1500px so to go overboard  which basically means settings background-size 100% will disable background-position property for the height or width */
+}
+
+#bannerDescription {
+  height: inherit;
+  width: 40%;
+  position: relative;
+  margin-left: 10%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+}
+
+#bannerIllustration {
+  height: 100%;
+  width: 550px;
+  background-image: url(./img/background_illustration.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  height: 200px;
+  width: 100%;
+  background-color: #8c4c34;
+  box-sizing: border-box;
+}
+
+#social {
+  width: 250px;
+  position: relative;
+  box-sizing: border-box;
+  height: fit-content;
+}
+
+#socialIcons {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  width: 100%;
+}
+
+.icon {
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#footerDescription {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  color: #eeeeee;
+}
