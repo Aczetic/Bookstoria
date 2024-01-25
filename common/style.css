@@ -41,19 +41,21 @@ button:active {
   z-index: 10;
   backdrop-filter: blur(15px);
   left: calc(50% - 200px);
-  top: calc(50% - 350px);
+  /* top: calc(50% - 350px);  this setting is put in .formLogin and .formSignup because when the classes are changed the put stypes in #form are not chnaged*/
   border-radius: 10px;
   transition: 0.5s;
   transform: scale(0);
 }
 
 .formLogin {
-  height: 400px;
+  height: 350px;
+  top: calc(50% - 200px);
   padding: 20px 0;
 }
 
 .formSignup {
   height: 700px;
+  top: calc(50% - 350px);
 }
 
 #formCloseButton {
