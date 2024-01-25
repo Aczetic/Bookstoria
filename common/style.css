@@ -1,3 +1,5 @@
+/* to use svg background-image:url(data:image/svg+xml;base64,address) */
+/* changing the default input icon like that of calendar , set the background-image of input */
 * {
   padding: 0;
   margin: 0;
@@ -12,6 +14,10 @@ body {
   height: fit-content;
   font-family: poppins, sans-serif;
   color: #0c0a0a;
+}
+/* below selector removes the calendar icon showing by default most of the browsers respect this  */
+input::-webkit-calendar-picker-indicator {
+  background: transparent;
 }
 
 button {
@@ -35,7 +41,7 @@ button:active {
   z-index: 10;
   backdrop-filter: blur(15px);
   left: calc(50% - 200px);
-  top: calc(50% - 250px);
+  top: calc(50% - 350px);
   border-radius: 10px;
   transition: 0.5s;
   transform: scale(0);
@@ -43,10 +49,11 @@ button:active {
 
 .formLogin {
   height: 400px;
+  padding: 20px 0;
 }
 
 .formSignup {
-  height: 500px;
+  height: 700px;
 }
 
 #formCloseButton {
@@ -107,7 +114,7 @@ input:not(:placeholder-shown) ~ label {
     also when place holder of preceding input is not shown then set the style as given */
 
 form {
-  height: 70%;
+  height: 85%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -125,13 +132,10 @@ form {
   transition: 0.5s;
 }
 
-#Username,
-#Email,
-#Password {
+.fieldSet {
   width: 60%;
   border-bottom: 4px solid #8c4c34;
   position: relative;
-  margin-bottom: 0px;
   box-sizing: border-box;
 }
 
@@ -145,6 +149,7 @@ form {
   border-radius: 10px;
   border: none;
   padding: 5px 0;
+  margin-bottom: 5px;
 }
 
 #form a {

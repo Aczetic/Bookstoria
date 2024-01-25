@@ -1,7 +1,10 @@
 <!-- TODO : adding responsive design , favicon , JS Validation(form var) , lottie animation , backend , -->
 <!-- Current design is valid until 900px -->
 <!-- When user logged in remove sign up and login buttons and add profile pagination and signout button -->
+<!--expanding the banner for mobile devices so that a blank is not shown after footer / after assignment submission-->
 <!-- clear the sign up and login form the form toggles to close -->
+<!-- radio button and checkbox control -->
+<!-- ----------------------------------SCROLLING ANIMATION OF THOUGHTS ON BANNER---------------------- -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,29 +26,39 @@
       <h2>Login</h2>
       <form action="#">
         <div id="dataFieldContainer">
-          <div
-            class="fieldSet"
-            id="Username"
-            style="display: none; transition: 0.5s"
-          >
+          <div class="fieldSet" id="Username">
             <span
               class="icon"
               style="background-image: url(./img/user.png)"
             ></span>
-            <input id="user" type="text" required placeholder=" " />
-            <label>Username</label>
+            <input name="user" id="user" type="text" required placeholder=" " />
+            <label for="user">Username</label>
           </div>
           <div class="fieldSet" id="Email">
             <span
               class="icon"
               style="background-image: url(./img/mail.png)"
             ></span>
-            <input id="email" type="email" placeholder=" " required />
-            <label>Email</label>
+            <input
+              name="email"
+              id="email"
+              type="email"
+              placeholder=" "
+              required
+            />
+            <label for="email">Email</label>
           </div>
           <div class="fieldSet" id="Password">
-            <input id="password" type="password" placeholder=" " autocomplete />
-            <label>Password</label>
+            <input
+              name="password"
+              id="password"
+              type="password"
+              placeholder=" "
+              minlength="6"
+              autocomplete="current-password"
+            />
+            <label for="password">Password</label>
+
             <span class="icon" onclick="toggleIcon(event)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +75,97 @@
               </svg>
             </span>
           </div>
+          <div class="fieldSet" id="Phone">
+            <span
+              class="icon"
+              style="background-image: url(./img/phone.png)"
+            ></span>
+            <input
+              name="phone"
+              id="phone"
+              type="text"
+              pattern="[0-1]{10}"
+              placeholder=" "
+              required
+            />
+            <label for="phone">Phone</label>
+          </div>
+          <div class="fieldSet" style="height: 40px" id="Sex">
+            <span
+              class="icon"
+              style="
+                background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iU3ZnanNTdmcxMDE1IiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmNvbS9zdmdqcyI+PGRlZnMgaWQ9IlN2Z2pzRGVmczEwMTYiPjwvZGVmcz48ZyBpZD0iU3ZnanNHMTAxNyI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiIGNsaXAtcnVsZT0iZXZlbm9kZCIgdmlld0JveD0iMCAwIDMyIDMyIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiI+PHBhdGggZD0iTTUuOTk5IDE2LjE0djQuMjk2SDQuNjY4YTIuMzggMi4zOCAwIDAgMCAwIDQuNzU3aDEuMzMxdjIuMjI2YTIuMzggMi4zOCAwIDAgMCA0Ljc1NyAwdi0yLjIyNmgxLjQyMWEyLjM4IDIuMzggMCAwIDAgMC00Ljc1N2gtMS40MjJsLjAwMS00LjI5NmE3LjEzNCA3LjEzNCAwIDAgMCA0Ljc0OC02LjcyIDcuMTMgNy4xMyAwIDAgMC03LjEyNy03LjEyN0E3LjEzMSA3LjEzMSAwIDAgMCAxLjI1IDkuNDJjMCAzLjEgMS45ODMgNS43NCA0Ljc0OSA2Ljcyem0yLjM3OC05LjA5YTIuMzcxIDIuMzcxIDAgMCAxIDAgNC43NDEgMi4zNzEgMi4zNzEgMCAwIDEgMC00Ljc0MXptMTIuNjE5IDMuMzYzdjUuNTM3YTcuMTMzIDcuMTMzIDAgMCAwLTQuNzQ5IDYuNzIgNy4xMyA3LjEzIDAgMCAwIDcuMTI3IDcuMTI3IDcuMTMgNy4xMyAwIDAgMCA3LjEyNy03LjEyN2MwLTMuMS0xLjk4My01Ljc0LTQuNzQ5LTYuNzJ2LTUuNTM3bC45MDYuOTA2YTIuMzggMi4zOCAwIDAgMCAzLjM2NC0zLjM2M0wyNS4wNTYgMi45OWEyLjM3OSAyLjM3OSAwIDAgMC0zLjM2NCAwbC00Ljk2NiA0Ljk2NmEyLjM4IDIuMzggMCAwIDAgMy4zNjQgMy4zNjNsLjkwNi0uOTA2em0yLjM3OCAxNC42MjhhMi4zNzEgMi4zNzEgMCAxIDEgMi4zNzEtMi4zNzEgMi4zNzMgMi4zNzMgMCAwIDEtMi4zNzEgMi4zNzF6IiBmaWxsPSIjOGY0ZjM4IiBjbGFzcz0iY29sb3IwMDAgc3ZnU2hhcGUiPjwvcGF0aD48L3N2Zz48L2c+PC9zdmc+');
+              "
+              ;
+            ></span>
+            <input
+              style="width: 30%; height: 15px; position: relative; left: 8%"
+              name="sexMale"
+              id="sexMale"
+              type="radio"
+              value="male"
+            />
+            <label style="top: 0" for="sexMale">Male</label>
+            <input
+              style="width: 30%; height: 15px; position: relative; left: 20%"
+              name="sexFemale"
+              id="sexFemale"
+              type="radio"
+              value="female"
+            />
+            <label style="top: 0; left: 35%" for="sexFemale">Female</label>
+          </div>
+          <div class="fieldSet" id="Date" style="position: relative; top: 8px">
+            <span
+              class="icon"
+              style="
+                background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iU3ZnanNTdmcxMDAxIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmNvbS9zdmdqcyI+PGRlZnMgaWQ9IlN2Z2pzRGVmczEwMDIiPjwvZGVmcz48ZyBpZD0iU3ZnanNHMTAwOCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2Ij48cGF0aCBkPSJNMTksMi45aC0xdi0xYzAtMC42LTAuNC0xLTEtMXMtMSwwLjQtMSwxdjFIOHYtMWMwLTAuNi0wLjQtMS0xLTFzLTEsMC40LTEsMXYxSDVjLTEuNywwLTMsMS4zLTMsM3YxNGMwLDEuNywxLjMsMywzLDNoMTQJYzEuNywwLDMtMS4zLDMtM3YtMTRDMjIsNC4zLDIwLjcsMi45LDE5LDIuOXogTTcsMTguOWMtMC42LDAtMS0wLjQtMS0xYzAtMC42LDAuNC0xLDEtMXMxLDAuNCwxLDFDOCwxOC41LDcuNiwxOC45LDcsMTguOXogTTcsMTQuOQoJYy0wLjYsMC0xLTAuNC0xLTFjMC0wLjYsMC40LTEsMS0xczEsMC40LDEsMUM4LDE0LjUsNy42LDE0LjksNywxNC45eiBNMTIsMTguOWMtMC42LDAtMS0wLjQtMS0xYzAtMC42LDAuNC0xLDEtMXMxLDAuNCwxLDEKCUMxMywxOC41LDEyLjYsMTguOSwxMiwxOC45eiBNMTIsMTQuOWMtMC42LDAtMS0wLjQtMS0xYzAtMC42LDAuNC0xLDEtMXMxLDAuNCwxLDFDMTMsMTQuNSwxMi42LDE0LjksMTIsMTQuOXogTTE3LDE4LjkKCWMtMC42LDAtMS0wLjQtMS0xYzAtMC42LDAuNC0xLDEtMXMxLDAuNCwxLDFDMTgsMTguNSwxNy42LDE4LjksMTcsMTguOXogTTE3LDE0LjljLTAuNiwwLTEtMC40LTEtMWMwLTAuNiwwLjQtMSwxLTFzMSwwLjQsMSwxCglDMTgsMTQuNSwxNy42LDE0LjksMTcsMTQuOXogTTIwLDguOUg0di0zYzAtMC42LDAuNC0xLDEtMWgxdjFjMCwwLjYsMC40LDEsMSwxczEtMC40LDEtMXYtMWg4djFjMCwwLjYsMC40LDEsMSwxczEtMC40LDEtMXYtMWgxCgljMC42LDAsMSwwLjQsMSwxVjguOXoiIGZpbGw9IiM4ZjRmMzgiIGNsYXNzPSJjb2xvcjAwMCBzdmdTaGFwZSI+PC9wYXRoPjwvc3ZnPjwvZz48L3N2Zz4=');
+              "
+            ></span>
+            <input
+              style="font-family: inherit; height: auto"
+              onfocus="this.showPicker()"
+              name="date"
+              id="date"
+              type="date"
+              value=""
+              placeholder=" "
+              required
+            />
+            <label for="date" style="top: -15px">Date</label>
+          </div>
+          <div class="fieldSet" style="height: 40px; top: 5px" id="Language">
+            <span
+              class="icon"
+              style="background-image: url('./img/language.png')"
+            ></span>
+            <label for="languageHndi" style="top: 0px; left: 20px">Hindi</label>
+            <input
+              style="height: 15px; width: 15px"
+              name="languageHindi"
+              id="languageHindi"
+              type="checkbox"
+              value="Hindi"
+              placeholder=" "
+              required
+            />
+            <label for="languageEnglish" style="top: 0px; left: 95px"
+              >English</label
+            >
+            <input
+              style="height: 15px; width: 15px; position: relative; left: 55px"
+              name="languageEnglish"
+              id="languageEnglish"
+              type="checkbox"
+              value="English"
+              placeholder=" "
+              required
+            />
+          </div>
         </div>
+
         <button id="Login">Submit</button>
+        <button id="Reset">Reset</button>
         <h4>
           <a href="#">Forgot password?</a>
           <a href="#" onclick="setForm()">Register</a>
@@ -86,7 +188,7 @@
             >
           </div>
           <div><a href="./catalogue">Catalogue</a></div>
-          <div><a href="#">Cart</a></div>
+          <div><a href="./cart">Cart</a></div>
         </div>
         <div id="reglog">
           <div id="signup">
@@ -143,11 +245,11 @@
         <h2>Contact Us</h2>
         <br />
         Phone : +91 1234567890 <br />
-        Email : contact@bookstoria.com <br />Address: Knowledge Park 3 Greakter
+        Email : contact@bookstoria.com <br />Address: Knowledge Park 3 Greater
         Noida 201306
       </div>
     </div>
 
-    <script lang="javascript/lang" src="./index.js"></script>
+    <script lang="javascript/lang" src="./common/index.js"></script>
   </body>
 </html>

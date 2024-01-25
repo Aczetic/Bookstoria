@@ -24,7 +24,7 @@ function toggleForm(setState) {
 
 function setForm(isLogin) {
   let formElem = document.querySelector("#form");
-  let username = document.querySelector("#Username");
+  let elems = ["#Username", "#Phone", "#Sex", "#Date", "#Language"];
   let a = document
     .getElementById("form")
     .getElementsByTagName("h4")[0]
@@ -33,12 +33,16 @@ function setForm(isLogin) {
 
   if (isLogin) {
     formElem.setAttribute("class", "formLogin");
-    username.style.display = "none";
+    elems.forEach((elem) => {
+      document.querySelector(elem).style.display = "none";
+    });
     a.innerText = "Register";
     h2.innerText = "Login";
   } else {
     formElem.setAttribute("class", "formSignup");
-    username.style.display = "block";
+    elems.forEach((elem) => {
+      document.querySelector(elem).style.display = "block";
+    });
     a.innerText = "";
     h2.innerText = "Register";
   }
