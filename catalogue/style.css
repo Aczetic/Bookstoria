@@ -44,6 +44,7 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   box-shadow: -3px 2px 8px 1px rgba(120, 82, 62, 0.5);
 }
 
@@ -99,9 +100,6 @@
   border-radius: 30px;
   cursor: pointer;
   background-size: contain;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .cartIconAdded {

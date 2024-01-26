@@ -219,10 +219,10 @@
               <div class="author">Author : Ananya Singh</div>
               <div class="publisher">Publisher : Packt</div>
               <div class="price">
-                Price : 20$<button
+                Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
                   class="cartIcon"
                   onclick="this.classList.add('cartIconAdded')"
-                ></button>
+                ></button></div>
               </div>
             </div>
           </div>
@@ -236,10 +236,11 @@
             <div class="author">Author : Abraham Shibershatz</div>
             <div class="publisher">Publisher : Mc Graw Hill</div>
             <div class="price">
-              Price : 20$<button
+              Price : 20$
+              <div onclick = 'cartIncrement(event)' class = 'cartCount'><button
                 class="cartIcon"
                 onclick="this.classList.add('cartIconAdded')"
-              ></button>
+              ></button></div>
             </div>
           </div>
         </div>
@@ -253,10 +254,10 @@
             <div class="author">Author : Thomas H. Coremen</div>
             <div class="publisher">Publisher : PHI Learning Ltd</div>
             <div class="price">
-              Price : 20$<button
+              Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
                 class="cartIcon"
                 onclick="this.classList.add('cartIconAdded')"
-              ></button>
+              ></button></div>
             </div>
           </div>
         </div>
@@ -277,10 +278,10 @@
             <div class="author">Author : Er. R. K. Rajput</div>
             <div class="publisher">Publisher : Birla Pub Pvt Ltd</div>
             <div class="price">
-              Price : 20$<button
+              Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
                 class="cartIcon"
                 onclick="this.classList.add('cartIconAdded')"
-              ></button>
+              ></button></div>
             </div>
           </div>
         </div>
@@ -294,10 +295,10 @@
             <div class="author">Author : Abraham Shibershatz</div>
             <div class="publisher">Publisher : Mc Graw Hill</div>
             <div class="price">
-              Price : 20$<button
+              Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
                 class="cartIcon"
                 onclick="this.classList.add('cartIconAdded')"
-              ></button>
+              ></button></div>
             </div>
           </div>
         </div>
@@ -311,10 +312,10 @@
             <div class="author">Author : Thomas H. Coremen</div>
             <div class="publisher">Publisher : PHI Learning Ltd</div>
             <div class="price">
-              Price : 20$<button
+              Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
                 class="cartIcon"
                 onclick="this.classList.add('cartIconAdded')"
-              ></button>
+              ></button></div>
             </div>
           </div>
         </div>
@@ -324,6 +325,7 @@
       <div class="categoryTitle">
         Civil Engineering
       </div>
+      <div class = "books">
       <div class="card">
         <div
           class="bookImage"
@@ -334,18 +336,55 @@
           <div class="author">Author : R. Agor</div>
           <div class="publisher">Publisher : Khanna Pub</div>
           <div class="price">
-            Price : 20$<button
+            Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
               class="cartIcon"
               onclick="this.classList.add('cartIconAdded')"
-            ></button>
+            ></button></div>
           </div>
         </div>
       </div>
+      <div class="card">
+        <div
+          class="bookImage"
+          style="background-image: url(../img/bookImg/cse/database_system_concepts.jpg)"
+        ></div>
+        <div class="bookSmallDescription">
+          <div class="bookTitle">Database System Concepts - 7th Edition</div>
+          <div class="author">Author : Abraham Shibershatz</div>
+          <div class="publisher">Publisher : Mc Graw Hill</div>
+          <div class="price">
+            Price : 20$
+            <div onclick = 'cartIncrement(event)' class = 'cartCount'><button
+              class="cartIcon"
+              onclick="this.classList.add('cartIconAdded')"
+            ></button></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div
+          class="bookImage"
+          style="background-image: url(../img/bookImg/cse/introduction_to_algorithms.jpg)"
+        ></div>
+        <div class="bookSmallDescription">
+          <div class="bookTitle">Introduction to Algorithms</div>
+          <div class="author">Author : Thomas H. Coremen</div>
+          <div class="publisher">Publisher : PHI Learning Ltd</div>
+          <div class="price">
+            Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
+              class="cartIcon"
+              onclick="this.classList.add('cartIconAdded')"
+            ></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     <div class="categories" id="EEE">
       <div class="categoryTitle">
         Electrical and Electronics Engineering
       </div>
+      <div class = 'books'>
       <div class="card">
         <div
           class="bookImage"
@@ -356,12 +395,48 @@
           <div class="author">Author : S.K. Bhattacharya</div>
           <div class="publisher">Publisher : Pearson</div>
           <div class="price">
-            Price : 20$<button
+            Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
               class="cartIcon"
               onclick="this.classList.add('cartIconAdded')"
-            ></button>
+            ></button></div>
           </div>
         </div>
+      </div>
+      <div class="card">
+        <div
+          class="bookImage"
+          style="background-image: url(../img/bookImg/cse/database_system_concepts.jpg)"
+        ></div>
+        <div class="bookSmallDescription">
+          <div class="bookTitle">Database System Concepts - 7th Edition</div>
+          <div class="author">Author : Abraham Shibershatz</div>
+          <div class="publisher">Publisher : Mc Graw Hill</div>
+          <div class="price">
+            Price : 20$
+            <div onclick = 'cartIncrement(event)' class = 'cartCount'><button
+              class="cartIcon"
+              onclick="this.classList.add('cartIconAdded')"
+            ></button></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div
+          class="bookImage"
+          style="background-image: url(../img/bookImg/cse/introduction_to_algorithms.jpg)"
+        ></div>
+        <div class="bookSmallDescription">
+          <div class="bookTitle">Introduction to Algorithms</div>
+          <div class="author">Author : Thomas H. Coremen</div>
+          <div class="publisher">Publisher : PHI Learning Ltd</div>
+          <div class="price">
+            Price : 20$<div onclick = 'cartIncrement(event)' class = 'cartCount'><button
+              class="cartIcon"
+              onclick="this.classList.add('cartIconAdded')"
+            ></button></div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </div>
