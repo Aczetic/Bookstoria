@@ -57,8 +57,62 @@ function cartIncrement(event) {
   let val = Number(event.target.parentNode.innerText);
   event.target.parentNode.innerHTML = `<button
   class="cartIcon"
-  onclick="this.classList.add('cartIconAdded')"
+  onclick="this.classList.add('cartIconAdded'), addToCart(event)"
 ></button>${++val}`;
 
   //TODO : after increasing the count this function is supposed to report to the cart as well
+}
+
+// this function sets the session storage required by the cart page for generating cart data for checkout.
+function addToCart(event) {
+  // NOTE : this tecnnique is not good as it can easily be exploited by XSS hacking
+  let elem = event.target.parentNode.parentNode.parentNode.parentNode;
+  let product = {
+    bookName: String(elem.getElementsByClassName("bookTitle")[0].innerText),
+    author: String(elem.getElementsByClassName("author")[0].innerText),
+    publisher: String(elem.getElementsByClassName("publisher")[0].innerText),
+    price: String(elem.getElementsByClassName("price")[0].innerText),
+    count: String(Number(event.target.parentNode.innerText) + 1),
+    // here + 1 is done because when the cart button is clicked inititally there is nothing so it will be treated as 0 and the value is only being changed after the click
+  };
+
+  // loop to only store the value
+  for (key in product) {
+    if (key != "bookName" && key != "count")
+      product[key] = product[key].substring(product[key].indexOf(":") + 2);
+    // here +2 is done to increase the index to not include ': ' (colon and space) in the value string
+  }
+
+  let storage = window.sessionStorage;
+  if (storage.getItem("cart") == null) {
+    // if the cart doesn't exist
+    let products = {
+      books: [product],
+      price: parseInt(product.price),
+    };
+    storage.setItem("cart", JSON.stringify(products));
+    //JSON.stringify is used because local storage only supports string data type
+    // so an object type is stored then on retrieving end [ohject object] will be shown
+    console.log(products);
+  } else {
+    // if the cart does exist
+    let cart = JSON.parse(storage.getItem("cart"));
+    // JSON parse was required because the local storage stored the object in string type. So parse it as object
+    let bookExists = false;
+    cart.books.forEach((book) => {
+      // check if the selected book exists or not
+      if (book.bookName == product.bookName) {
+        bookExists = true;
+        // if it exists
+        book.count++; // increase the count
+        cart.price += parseInt(book.price); //add the price of the book into cart's price
+      }
+    });
+
+    if (bookExists != true) {
+      cart.books.push(product);
+      cart.price += parseInt(product.price);
+    }
+    storage.setItem("cart", JSON.stringify(cart));
+  }
 }
