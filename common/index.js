@@ -67,8 +67,14 @@ function cartIncrement(event) {
 function addToCart(event) {
   // NOTE : this tecnnique is not good as it can easily be exploited by XSS hacking
   let elem = event.target.parentNode.parentNode.parentNode.parentNode;
+  console.log(
+    elem.getElementsByClassName("bookImage")[0].style.backgroundImage
+  );
   let product = {
     bookName: String(elem.getElementsByClassName("bookTitle")[0].innerText),
+    coverImage: String(
+      elem.getElementsByClassName("bookImage")[0].style.backgroundImage
+    ),
     author: String(elem.getElementsByClassName("author")[0].innerText),
     publisher: String(elem.getElementsByClassName("publisher")[0].innerText),
     price: String(elem.getElementsByClassName("price")[0].innerText),
@@ -78,7 +84,8 @@ function addToCart(event) {
 
   // loop to only store the value
   for (key in product) {
-    if (key != "bookName" && key != "count")
+    if (product[key].indexOf(":") != -1)
+      // if the product.key contains ':' colon only then trim it
       product[key] = product[key].substring(product[key].indexOf(":") + 2);
     // here +2 is done to increase the index to not include ': ' (colon and space) in the value string
   }
