@@ -8,6 +8,10 @@ let listproducts = [];
 // product.publisher: gives the name of the publisher of the book
 // product.price: gives the price of the book in pirce_$ format e.g. 20$
 // product.count: gives the count of the book added into the cart of the same type.
+// the above code is supposed to be added in the forEach();
+//cart.price : tells the total price of the card, this values is not supposed to be used in the forEach
+// because the forEach produces the elements for the selected books but he price shown in a separate element all
+// the time.
 
 const addDataToHTML = (cart = { books: [], price: Number }) => {
   listproductHTML.innerHTML = "";
