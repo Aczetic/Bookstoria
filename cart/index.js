@@ -42,11 +42,15 @@ const addDataToHTML = (cart = { books: [], price: Number }) => {
                   
                  </div>
               </div> `);
-    
   });
-  elems.push(` <div style = "height:50px; width:100%; display:flex; justify-content:flex-end"><div>Total Price~${cart.price}$</div></div> `);
-  
+  elems.push(
+    ` <div style = "height:50px; width:100%; display:flex; justify-content:flex-end"></div> `
+  );
+
   listproductHTML.innerHTML = elems.join("");
+  document.getElementsByClassName(
+    "total"
+  )[0].innerText = `Total Price : ${cart.price}$`;
 };
 
 const initApp = () => {
