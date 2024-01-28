@@ -60,7 +60,7 @@ const initApp = () => {
   //     listproducts=data;
   //     addDataToHTML();
   // })
-  let cart = JSON.parse(window.sessionStorage.getItem("cart"));
+  let cart = JSON.parse(window.localStorage.getItem("cart"));
   console.log(cart.books);
 
   addDataToHTML(cart);
