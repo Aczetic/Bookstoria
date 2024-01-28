@@ -7,9 +7,16 @@ body {
 .headerr {
   min-height: 100vh;
   width: 100%;
-  background-color: rgba(253, 231, 196, 0.5);
-  background-image: url(cart1.png);
-
+  background-color: rgba(253, 231, 196);
+  background-image: url(cart3.gif);
+  mix-blend-mode: multiply;
+  background-position: 90px;
+  background-size: 45%;
+  background-repeat: no-repeat;
+  padding-bottom: 70px;
+  position: relative;
+}
+.container {
   background-position: 90px;
   background-size: 30%;
   background-repeat: no-repeat;
@@ -19,6 +26,21 @@ body {
   position: relative;
   width: 100%;
   z-index: 1;
+}
+svg {
+  padding-top: 30px;
+  color: #8c4c34;
+  width: 60px;
+  padding-right: 0px;
+}
+.img {
+  /* padding-top: %; */
+}
+header {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 20px;
 
   /* background-color: #b39795; */
 }
