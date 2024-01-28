@@ -18,10 +18,37 @@ const addDataToHTML = (cart = { books: [], price: Number }) => {
   let elems = [];
   cart["books"].forEach((product) => {
     // newProduct.classList.add('item');
-    elems.push(`<div class = 'item' >${product.bookName}</div>`);
+    elems.push(` <div class='item'>
+                  <div class='image' style = 'background-image:${product.coverImage}'>
+                    
+                        
+                  </div>
+                 <div class="name">
+                      
+                     ${product.bookName}
+                     <br>
+                  Author~ ${product.author}
+                    
+                 </div> 
+                 <div class="price">
+                   
+                   ${product.price}
+  
+                   
+                 </div>
+                 <div class ="quantity">
+
+                  <span>${product.count}</span>
+                  
+                 </div>
+              </div> `);
+    
   });
+  elems.push(` <div style = "height:50px; width:100%; display:flex; justify-content:flex-end"><div>Total Price~${cart.price}$</div></div> `);
+  
   listproductHTML.innerHTML = elems.join("");
 };
+
 const initApp = () => {
   // fetch('cartproducts.json')
   // .then(response=>response.json())
