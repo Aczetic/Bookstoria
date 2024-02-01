@@ -1,6 +1,5 @@
 //TODO: provide a favicon
 
-window.localStorage.clear();
 //initially clear the local storage;
 let eyeIconArray = [
   // tha path values of eye icon used in password field

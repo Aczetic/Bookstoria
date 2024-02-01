@@ -72,7 +72,7 @@ header .title {
   top: 80px;
   padding: 0 10px;
   box-sizing: border-box;
-  backdrop-filter: blur(10px);
+
   /* color:rgb(176, 199, 210); */
   right: 50px;
   /* inset:0 0 0 auto; */
@@ -82,6 +82,7 @@ header .title {
   border: solid #8c4c34;
   /* overflow:scroll; */
   position: absolute;
+  background-color: rgba(249, 224, 187, 1);
 }
 .cart h1 {
   padding: 20px;
@@ -111,7 +112,6 @@ header .title {
   border: none;
   box-shadow: none;
   transform: none;
-  background-image: linear-gradient();
 }
 .btn button:hover {
   box-shadow: 0 0 20px 2px rgba(140, 76, 52, 0.7);
